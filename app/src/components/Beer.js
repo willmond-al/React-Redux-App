@@ -5,15 +5,17 @@ import { getBeer } from '../actions/index'
 
  const Beer = ({getBeer, beer, isFetching, error}) =>{
 
-    useEffect(()=>{
-        getBeer();
-    }, [])
+    // useEffect(()=>{
+    //     getBeer();
+    // }, [])
 
     const handleClick = () =>{
         getBeer()
     }
     return (
         <div>
+
+    <h2>{beer}</h2>
             <button onClick={handleClick}>find out which beer to drink!</button>
         </div>
     )
