@@ -12,11 +12,20 @@ import { getBeer } from '../actions/index'
     const handleClick = () =>{
         getBeer()
     }
-    return (
-        <div>
 
-    <h2>{beer}</h2>
-            <button onClick={handleClick}>find out which beer to drink!</button>
+    if (error) {
+        return <h2>We got an error: {error}</h2>;
+      }
+    
+      if (isFetching) {
+        return <h2>selecting your beer..</h2>;
+      }
+
+    return (
+        <div className='beer-card'>
+        <img src={beer.image_url}/>
+        <h2>{beer.name}</h2>
+     <button onClick={handleClick}>find out which beer to drink!</button>
         </div>
     )
 

@@ -11,7 +11,10 @@ export const getBeer = () => dispatch => {
     .get('https://api.punkapi.com/v2/beers')
     .then(res =>{
         console.log(res)
-        dispatch({ type: "FETCH_BEER_SUCCESS", payload: res.data[randomNum(res.data)].name})
+        setTimeout(() => {
+            
+            dispatch({ type: "FETCH_BEER_SUCCESS", payload: res.data[randomNum(res.data)]})
+        }, 2000);
 
     })
     .catch(err =>{
